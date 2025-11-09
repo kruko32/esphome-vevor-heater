@@ -39,6 +39,7 @@ enum class HeaterState : uint8_t {
 // Controller command states
 enum class ControllerState : uint8_t {
   CMD_OFF = 0x02,
+  CMD_COOLING = 0x05,
   CMD_START = 0x06,
   CMD_RUNNING = 0x08
 };
