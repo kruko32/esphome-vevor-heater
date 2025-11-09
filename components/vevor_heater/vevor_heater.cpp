@@ -71,8 +71,8 @@ void VevorHeater::update() {
   
   // Only send frames and handle timeouts if heater is enabled or needs to stop
   bool should_communicate = heater_enabled_ || 
-                           (current_state_ != HeaterState::OFF && 
-                            current_state_ != HeaterState::STOPPING_COOLING);
+                           (current_state_ != HeaterState::OFF) || 
+                            (current_state_ == HeaterState::STOPPING_COOLING && heat_exchanger_temperature_ > 55.0f);
   
   if (should_communicate) {
     // Handle communication timeout
